@@ -1,0 +1,39 @@
+{
+	"name":"Doc-mments Reader No api",
+	"description":"A Chrome extension That does auto traversal",
+	"version":"1.0",
+	"manifest_version":3,
+
+	"action":{
+		"default_popup":"index.html",
+		"default_icons":{
+		"16":"icons/icons8-comments-64.png",
+		"32":"icons/icons8-comments-64.png",
+		"128":"icons/icons8-comments-64.png"
+}
+	},
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"scripting",
+		"storage",
+		"identity",
+		"cookies",
+		"contextMenus"
+	],
+	"content_scripts":[{
+		 "matches": ["https://*.google.com/*"],
+		"run":"css/document_idle",
+		"css":["css/comments.css"],
+		"js":["content.js"]
+	}],
+	"background":[{
+		"service_worker":["background.js"]
+	}],
+	"icons":{
+		"16":"icons/icons8-comments-64.png",
+		"32":"icons/icons8-comments-64.png",
+		"128":"icons/icons8-comments-64.png"
+	}
+
+}
